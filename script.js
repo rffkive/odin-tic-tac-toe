@@ -6,8 +6,9 @@ const GameBoard = (function () {
         board[i] = mark;
         return true; }  else {return false;}
     };
+    const reset = () => {board = ["","","","","","","","",""];};
 
-    return {getBoard, setMark};
+    return {getBoard, setMark, reset};
 }) ();
 
 console.log(GameBoard);
@@ -17,4 +18,6 @@ console.log(GameBoard.setMark(4,"y4"));
 console.log(GameBoard.setMark(13,"thirteen"));
 console.log(GameBoard.setMark(1,"z1"));
 console.log(GameBoard.setMark(6,"y6"));
+console.log(GameBoard.getBoard());
+console.log(GameBoard.reset());
 console.log(GameBoard.getBoard());
