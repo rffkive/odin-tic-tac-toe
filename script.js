@@ -21,3 +21,7 @@ console.log(GameBoard.setMark(6,"y6"));
 console.log(GameBoard.getBoard());
 console.log(GameBoard.reset());
 console.log(GameBoard.getBoard());
+
+const Player = function (name, mark) {
+    return {name, mark};
+};
