@@ -37,10 +37,19 @@ const Game = (function () {
         if (GameBoard.setMark(index,currentPlayer.mark) === true) {
             console.log (`${currentPlayer.name} placed ${currentPlayer.mark} at position ${index}`);
             console.log(GameBoard.getBoard());
+            switchPlayer();
         } else { 
             console.log("already been fiiled. pick another spot");
         }
+    };
 
+    const switchPlayer = () => {
+        if (currentPlayer === Player1) {
+            currentPlayer = Player2;
+        } else {
+            currentPlayer = Player1;
+            console.log(currentPlayer);
+        }
     };
 
 
@@ -51,3 +60,8 @@ const Game = (function () {
 console.log(Game.playRound("d"));
 console.log(Game.playRound(7));
 console.log(Game.playRound(7));
+console.log(Game.playRound(6));
+console.log(Game.playRound(5));
+console.log(Game.playRound(4));
+console.log(Game.playRound(3));
+console.log(Game.playRound(1));
