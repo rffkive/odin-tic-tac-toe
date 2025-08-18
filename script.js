@@ -25,3 +25,15 @@ console.log(GameBoard.getBoard());
 const Player = function (name, mark) {
     return {name, mark};
 };
+
+const Game = (function () { 
+    const Player1 = Player("Ariff", "x");
+    const Player2 = Player("Computer", "o");
+
+    let currentPlayer = Player1;
+
+    const playROund = () => {
+        GameBoard.setMark(i,currentPlayer.mark)
+    };
+
+}) ();
