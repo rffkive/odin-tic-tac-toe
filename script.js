@@ -34,9 +34,13 @@ const Game = (function () {
 
     const playRound = (index) => {
         console.log(currentPlayer);
-        GameBoard.setMark(index,currentPlayer.mark);
-        console.log (`${currentPlayer.name} placed ${currentPlayer.mark} at position ${index}`);
-        console.log(GameBoard.getBoard());
+        if (GameBoard.setMark(index,currentPlayer.mark) === true) {
+            console.log (`${currentPlayer.name} placed ${currentPlayer.mark} at position ${index}`);
+            console.log(GameBoard.getBoard());
+        } else { 
+            console.log("already been fiiled. pick another spot");
+        }
+
     };
 
 
@@ -45,4 +49,5 @@ const Game = (function () {
 
 
 console.log(Game.playRound("d"));
+console.log(Game.playRound(7));
 console.log(Game.playRound(7));
