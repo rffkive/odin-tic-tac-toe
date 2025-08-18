@@ -32,8 +32,17 @@ const Game = (function () {
 
     let currentPlayer = Player1;
 
-    const playROund = () => {
-        GameBoard.setMark(i,currentPlayer.mark)
+    const playRound = (index) => {
+        console.log(currentPlayer);
+        GameBoard.setMark(index,currentPlayer.mark);
+        console.log (`${currentPlayer.name} placed ${currentPlayer.mark} at position ${index}`);
+        console.log(GameBoard.getBoard());
     };
 
+
+    return {playRound};
 }) ();
+
+
+console.log(Game.playRound("d"));
+console.log(Game.playRound(7));
