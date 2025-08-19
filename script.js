@@ -41,6 +41,10 @@ const Game = (function () {
                 console.log(`${currentPlayer.name} is the winner`);
                 playAgain();
                 return;
+            } else if (isTie()) {
+                console.log(`it's tie`);
+                playAgain();
+                return;
             }
             switchPlayer();
         } else { 
@@ -76,16 +80,18 @@ const Game = (function () {
         }
     };
 
+    const isTie = () => GameBoard.getBoard().every(cell => cell != "") && !gameOver();
+
     return {playRound};
 }) ();
 
 
 console.log(Game.playRound(1));
-console.log(Game.playRound(7));
 console.log(Game.playRound(6));
-console.log(Game.playRound(5));
-console.log(Game.playRound(4));
-console.log(Game.playRound(3));
-console.log(Game.playRound(2));
 console.log(Game.playRound(8));
+console.log(Game.playRound(5));
+console.log(Game.playRound(3));
+console.log(Game.playRound(4));
+console.log(Game.playRound(2));
 console.log(Game.playRound(0));
+console.log(Game.playRound(7));
