@@ -68,7 +68,12 @@ const Game = (function () {
 
     const playAgain = () => {
         const notification = confirm("would you like to play again?");
-        notification? console.log("yes") : console.log("no");
+        if (notification) {
+            GameBoard.reset();
+            GameBoard.getBoard();
+        } else {
+            return;
+        }
     };
 
     return {playRound};
