@@ -37,6 +37,10 @@ const Game = (function () {
         if (GameBoard.setMark(index,currentPlayer.mark) === true) {
             console.log (`${currentPlayer.name} placed ${currentPlayer.mark} at position ${index}`);
             console.log(GameBoard.getBoard());
+            if (gameOver()) {
+                console.log(`${currentPlayer.name} is the winner`);
+                return;
+            }
             switchPlayer();
         } else { 
             console.log("already been fiiled. pick another spot");
@@ -52,16 +56,30 @@ const Game = (function () {
         }
     };
 
+    const gameOver = () => {
+        const board = GameBoard.getBoard();
+        const winPattern = [
+            [0,1,2], [3,4,5], [6,7,8],
+            [0,3,6], [1,4,7], [2,5,8],
+            [0,4,8], [2,4,6]
+        ];
+        return winPattern.some(pattern =>
+            board[pattern[0]] &&
+            board[pattern[0]] === board[pattern[1]] &&
+            board[pattern[1]] === board[pattern[2]]
+        );
+    }; 
 
     return {playRound};
 }) ();
 
 
-console.log(Game.playRound("d"));
-console.log(Game.playRound(7));
+console.log(Game.playRound(1));
 console.log(Game.playRound(7));
 console.log(Game.playRound(6));
 console.log(Game.playRound(5));
 console.log(Game.playRound(4));
 console.log(Game.playRound(3));
-console.log(Game.playRound(1));
+console.log(Game.playRound(2));
+console.log(Game.playRound(8));
+console.log(Game.playRound(0));
