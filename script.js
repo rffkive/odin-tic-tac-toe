@@ -39,6 +39,8 @@ const Game = (function () {
             console.log(GameBoard.getBoard());
             if (gameOver()) {
                 console.log(`${currentPlayer.name} is the winner`);
+                alert 
+                
                 return;
             }
             switchPlayer();
@@ -48,12 +50,7 @@ const Game = (function () {
     };
 
     const switchPlayer = () => {
-        if (currentPlayer === Player1) {
-            currentPlayer = Player2;
-        } else {
-            currentPlayer = Player1;
-            console.log(currentPlayer);
-        }
+        currentPlayer = (currentPlayer === Player1)? Player2 : Player1;
     };
 
     const gameOver = () => {
