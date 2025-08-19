@@ -39,8 +39,7 @@ const Game = (function () {
             console.log(GameBoard.getBoard());
             if (gameOver()) {
                 console.log(`${currentPlayer.name} is the winner`);
-                alert 
-                
+                playAgain();
                 return;
             }
             switchPlayer();
@@ -66,6 +65,11 @@ const Game = (function () {
             board[pattern[1]] === board[pattern[2]]
         );
     }; 
+
+    const playAgain = () => {
+        const notification = confirm("would you like to play again?");
+        notification? console.log("yes") : console.log("no");
+    };
 
     return {playRound};
 }) ();
