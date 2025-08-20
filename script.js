@@ -11,17 +11,6 @@ const GameBoard = (function () {
     return {getBoard, setMark, reset};
 }) ();
 
-console.log(GameBoard);
-console.log(GameBoard.setMark(3,"x3"));
-console.log(GameBoard.setMark(3,"y3"));
-console.log(GameBoard.setMark(4,"y4"));
-console.log(GameBoard.setMark(13,"thirteen"));
-console.log(GameBoard.setMark(1,"z1"));
-console.log(GameBoard.setMark(6,"y6"));
-console.log(GameBoard.getBoard());
-console.log(GameBoard.reset());
-console.log(GameBoard.getBoard());
-
 const Player = function (name, mark) {
     return {name, mark};
 };
@@ -46,7 +35,6 @@ const Game = (function () {
                 playAgain();
                 return;
             }
-            switchPlayer();
         } else { 
             console.log("already been fiiled. pick another spot");
         }
@@ -81,17 +69,22 @@ const Game = (function () {
     };
 
     const isTie = () => GameBoard.getBoard().every(cell => cell != "") && !gameOver();
+    
+    const computerMove = () => {
+        const computerIndex = Math.floor(Math.random() * 9);
+        playRound(computerIndex);
+    }
 
-    return {playRound};
+    const playGame = (index) => {
+        playRound(index);
+        switchPlayer();
+        computerMove();
+        switchPlayer();
+    }
+    
+    return {playGame};
 }) ();
 
 
-console.log(Game.playRound(1));
-console.log(Game.playRound(6));
-console.log(Game.playRound(8));
-console.log(Game.playRound(5));
-console.log(Game.playRound(3));
-console.log(Game.playRound(4));
-console.log(Game.playRound(2));
-console.log(Game.playRound(0));
-console.log(Game.playRound(7));
+console.log(Game.playGame(1));
+console.log(Game.playGame(6));
