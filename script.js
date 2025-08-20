@@ -37,7 +37,10 @@ const Game = (function () {
             }
         } else { 
             console.log("already been fiiled. pick another spot");
+            return;
         }
+        switchPlayer();
+        computerMove();
     };
 
     const switchPlayer = () => {
@@ -71,20 +74,32 @@ const Game = (function () {
     const isTie = () => GameBoard.getBoard().every(cell => cell != "") && !gameOver();
     
     const computerMove = () => {
-        const computerIndex = Math.floor(Math.random() * 9);
-        playRound(computerIndex);
-    }
-
-    const playGame = (index) => {
-        playRound(index);
+        const emptyIndex = []
+        let emptyCell = GameBoard.getBoard().indexOf("");
+        while (emptyCell !== -1) {
+            emptyIndex.push(emptyCell);
+            emptyCell = GameBoard.getBoard().indexOf("", emptyCell + 1);
+        }
+        
+        const computerIndex = emptyIndex[Math.floor(Math.random() * emptyIndex.length)];
+        GameBoard.setMark(computerIndex, currentPlayer.mark);
+        console.log (`${currentPlayer.name} placed ${currentPlayer.mark} at position ${computerIndex}`);
+        console.log(GameBoard.getBoard());
+        if (gameOver()) {
+            console.log(`${currentPlayer.name} is the winner`);
+            playAgain();
+            return;
+        } else if (isTie()) {
+            console.log(`it's tie`);
+            playAgain();
+            return;
+        } 
         switchPlayer();
-        computerMove();
-        switchPlayer();
-    }
+    };
     
-    return {playGame};
+    
+    return {playRound};
 }) ();
 
 
-console.log(Game.playGame(1));
-console.log(Game.playGame(6));
+console.log(Game.playRound(1));
