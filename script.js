@@ -16,12 +16,11 @@ const Player = function (name, mark) {
 };
 
 const Game = (function () { 
-    const Player1 = Player("Ariff", "x");
-    const Player2 = Player("Computer", "o");
 
-    let currentPlayer = Player1;
+    let Player1,Player2, currentPlayer;
 
     const playRound = (index) => {
+
         console.log(currentPlayer);
         if (GameBoard.setMark(index,currentPlayer.mark) === true) {
             console.log (`${currentPlayer.name} placed ${currentPlayer.mark} at position ${index}`);
@@ -97,9 +96,34 @@ const Game = (function () {
         switchPlayer();
     };
     
-    
-    return {playRound};
+    const chooseTurn = (name,number) => {
+        if (name === "computer") {
+            console.log("choose another name");
+            return;
+        }
+
+        if (number === 1) {
+            Player1 = Player(name,"x");
+            Player2 = Player("Computer","o");
+            currentPlayer = Player1;
+            console.log("player1 =", Player1);
+            console.log("player2 =", Player2);
+            console.log("Currentplayer =", currentPlayer);
+            console.log(GameBoard.getBoard());
+        } else {
+            Player1 = Player("Computer", "x");
+            Player2 = Player(name, "o");
+            currentPlayer = Player1;
+            console.log("Currentplayer =", currentPlayer);
+            computerMove();
+            console.log("player1=", Player1);
+            console.log("player2 =", Player2);
+            console.log("Currentplayer =", currentPlayer);
+            console.log(GameBoard.getBoard());
+        }
+    };
+
+    return {chooseTurn, playRound};
 }) ();
 
-
-console.log(Game.playRound(1));
+console.log(Game.chooseTurn("ariff",2));
