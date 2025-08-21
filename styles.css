@@ -52,3 +52,50 @@
   #root, #__next {
     isolation: isolate;
   }
+
+  * {
+    border: 2px dotted purple;
+  }
+   body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+   }
+
+   
+   main {
+    display: flex;
+    width: 100%;
+    flex: auto;
+    align-items: center;
+    justify-content: center;
+   }
+
+   .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3,1fr) ;
+    gap: 0.5rem;
+  }
+
+  button {
+    padding: 3rem;
+    color: aquamarine;
+    border-radius: 5px;
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .attribution { 
+    font-size: 11px; 
+    text-align: center; 
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
