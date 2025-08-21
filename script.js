@@ -34,14 +34,14 @@ const Game = (function () {
                 setTimeout (()=>{
                 console.log(`${currentPlayer.name} is the winner`);
                 playAgain();
+                },100);
                 return;
-                });
             } else if (isTie()) {
                 setTimeout(()=>{
                 console.log(`it's tie`);
                 playAgain();
-                return;
-                });  
+                },100);
+                return;  
             }
         } else { 
             console.log("already been fiiled. pick another spot");
@@ -74,6 +74,11 @@ const Game = (function () {
         if (notification) {
             GameBoard.reset();
             GameBoard.getBoard();
+            const cell = document.querySelectorAll(".cell");
+            cell.forEach(cell => {
+                cell.textContent = "";
+                return;
+            });
         } else {
             return;
         }
