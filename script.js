@@ -127,3 +127,14 @@ const Game = (function () {
 }) ();
 
 console.log(Game.chooseTurn("ariff",2));
+
+const btn = document.querySelector(".cell");
+const btns = document.querySelectorAll("button");
+
+btns.forEach(btn => {
+    btn.addEventListener ("click", ()=> {
+    const btnIndex = btn.getAttribute("data-index");
+    console.log(btnIndex);
+});
+});
+
