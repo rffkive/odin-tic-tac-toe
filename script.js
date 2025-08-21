@@ -23,6 +23,11 @@ const Game = (function () {
 
         console.log(currentPlayer);
         if (GameBoard.setMark(index,currentPlayer.mark) === true) {
+            console.log(currentPlayer.mark);
+            console.log(currentPlayer);
+            const playerDiv = document.querySelector(`.cell[data-index="${index}"]`);
+            console.log(playerDiv);
+            playerDiv.textContent = currentPlayer.mark;
             console.log (`${currentPlayer.name} placed ${currentPlayer.mark} at position ${index}`);
             console.log(GameBoard.getBoard());
             if (gameOver()) {
@@ -82,6 +87,8 @@ const Game = (function () {
         
         const computerIndex = emptyIndex[Math.floor(Math.random() * emptyIndex.length)];
         GameBoard.setMark(computerIndex, currentPlayer.mark);
+        const computerDiv = document.querySelector(`.cell[data-index="${computerIndex}"]`);
+        computerDiv.textContent = currentPlayer.mark;
         console.log (`${currentPlayer.name} placed ${currentPlayer.mark} at position ${computerIndex}`);
         console.log(GameBoard.getBoard());
         if (gameOver()) {
@@ -126,15 +133,18 @@ const Game = (function () {
     return {chooseTurn, playRound};
 }) ();
 
-console.log(Game.chooseTurn("ariff",2));
-
 const btn = document.querySelector(".cell");
 const btns = document.querySelectorAll("button");
+
+Game.chooseTurn("Ariff",1);
 
 btns.forEach(btn => {
     btn.addEventListener ("click", ()=> {
     const btnIndex = btn.getAttribute("data-index");
     console.log(btnIndex);
+    Game.playRound(btnIndex);
 });
 });
+
+
 
