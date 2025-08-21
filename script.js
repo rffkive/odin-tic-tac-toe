@@ -31,13 +31,17 @@ const Game = (function () {
             console.log (`${currentPlayer.name} placed ${currentPlayer.mark} at position ${index}`);
             console.log(GameBoard.getBoard());
             if (gameOver()) {
+                setTimeout (()=>{
                 console.log(`${currentPlayer.name} is the winner`);
                 playAgain();
                 return;
+                });
             } else if (isTie()) {
+                setTimeout(()=>{
                 console.log(`it's tie`);
                 playAgain();
                 return;
+                });  
             }
         } else { 
             console.log("already been fiiled. pick another spot");
@@ -78,7 +82,8 @@ const Game = (function () {
     const isTie = () => GameBoard.getBoard().every(cell => cell != "") && !gameOver();
     
     const computerMove = () => {
-        const emptyIndex = []
+        setTimeout (()=>{
+            const emptyIndex = []
         let emptyCell = GameBoard.getBoard().indexOf("");
         while (emptyCell !== -1) {
             emptyIndex.push(emptyCell);
@@ -101,6 +106,7 @@ const Game = (function () {
             return;
         } 
         switchPlayer();
+        },500);
     };
     
     const chooseTurn = (name,number) => {
