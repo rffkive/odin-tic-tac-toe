@@ -23,13 +23,9 @@ const Game = (function () {
 
         console.log(currentPlayer);
         if (GameBoard.setMark(index,currentPlayer.mark) === true) {
-            console.log(currentPlayer.mark);
-            console.log(currentPlayer);
             const playerDiv = document.querySelector(`.cell[data-index="${index}"]`);
-            console.log(playerDiv);
             playerDiv.textContent = currentPlayer.mark;
-            console.log (`${currentPlayer.name} placed ${currentPlayer.mark} at position ${index}`);
-            console.log(GameBoard.getBoard());
+            playerDiv.classList.toggle(`${currentPlayer.mark}`);
             if (gameOver()) {
                 setTimeout (()=>{
                 console.log(`${currentPlayer.name} is the winner`);
@@ -99,19 +95,18 @@ const Game = (function () {
         GameBoard.setMark(computerIndex, currentPlayer.mark);
         const computerDiv = document.querySelector(`.cell[data-index="${computerIndex}"]`);
         computerDiv.textContent = currentPlayer.mark;
-        console.log (`${currentPlayer.name} placed ${currentPlayer.mark} at position ${computerIndex}`);
-        console.log(GameBoard.getBoard());
+        computerDiv.classList.toggle(`${currentPlayer.mark}`);
         if (gameOver()) {
             setTimeout(()=>{
             console.log(`${currentPlayer.name} is the winner`);
             playAgain();
-            });
+            },100);
             return;
         } else if (isTie()) {
             setTimeout(()=>{
             console.log(`it's tie`);
             playAgain();
-            });
+            },100);
             return;
         } 
         switchPlayer();
