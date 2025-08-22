@@ -158,12 +158,12 @@ height: 120px;
 transform: translateY(0);
 }
 
-.cell.x {
+.cell.o {
 color: #dc2626;
 background: linear-gradient(145deg, #fee2e2, #fecaca);
 }
 
-.cell.o {
+.cell.x {
 color: #059669;
 background: linear-gradient(145deg, #dcfce7, #bbf7d0);
 }
