@@ -1,101 +1,240 @@
-/* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
-    box-sizing: border-box;
-  }
-  
-  /* 2. Remove default margin */
-  * {
-    margin: 0;
-  }
-  
-  /* 3. Enable keyword animations */
-  @media (prefers-reduced-motion: no-preference) {
-    html {
-      interpolate-size: allow-keywords;
-    }
-  }
-  
-  body {
-    /* 4. Add accessible line-height */
+ *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+* {
+            margin: 0;
+        }
+        
+@media (prefers-reduced-motion: no-preference) {
+            html {
+                interpolate-size: allow-keywords;
+            }
+        }
+        
+body {
+    background-image: url(./848.jpg);
+    background-size: cover;          
+    background-position: center;     
+    background-repeat: no-repeat;
     line-height: 1.5;
-    /* 5. Improve text rendering */
     -webkit-font-smoothing: antialiased;
-  }
-  
-  /* 6. Improve media defaults */
-  img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-  }
-  
-  /* 7. Inherit fonts for form controls */
-  input, button, textarea, select {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: src linear-gradient(135deg, #fdf2f8 0%, #f8fafc 100%);
+    position: relative;
+    overflow-x: hidden;
+}        
+        
+input, button, textarea, select {
     font: inherit;
-  }
-  
-  /* 8. Avoid text overflows */
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
-  
-  /* 9. Improve line wrapping */
-  p {
-    text-wrap: pretty;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    text-wrap: balance;
-  }
-  
-  /*
-    10. Create a root stacking context
-  */
-  #root, #__next {
-    isolation: isolate;
-  }
-
-  * {
-    border: 2px dotted purple;
-  }
-   body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-   }
-
-   
-   main {
-    display: flex;
-    width: 100%;
-    flex: auto;
-    align-items: center;
-    justify-content: center;
-   }
-
-   .container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3,1fr) ;
-    gap: 0.5rem;
-  }
-
-  button {
-    padding: 3rem;
-    color: aquamarine;
-    border-radius: 5px;
-  }
-
-  footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-  }
-
-  .attribution { 
-    font-size: 11px; 
-    text-align: center; 
+}
+        
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+        
+p {
+  text-wrap: pretty;
+}
+        
+h1, h2, h3, h4, h5, h6 {
+ text-wrap: balance;
+}
+        
+#root, #__next {
+  isolation: isolate;
+}
+        
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+        
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: auto;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
-.attribution a { 
-    color: hsl(228, 45%, 44%); 
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #4a5568;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+        
+.title-english {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #0e131cdc;
+   margin-top: 0.5rem;
+  letter-spacing: 0.2em;
+}
+
+.container {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(3, 1fr);
+gap: 0.5rem;
+background: rgba(255, 255, 255, 0.9);
+padding: 1.5rem;
+border-radius: 20px;
+box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+backdrop-filter: blur(10px);
+position: relative;
+}
+
+.container::before {
+content: '';
+position: absolute;
+top: -2px;
+left: -2px;
+right: -2px;
+bottom: -2px;
+background: linear-gradient(45deg, #f87171, #fbbf24, #34d399, #60a5fa, #a78bfa, #f87171);
+border-radius: 22px;
+z-index: -1;
+opacity: 0.3;
+}
+
+.cell {
+width: 100px;
+height: 100px;
+background: linear-gradient(145deg, #ffffff, #f7fafc);
+border: 2px solid #e2e8f0;
+border-radius: 12px;
+font-size: 2.5rem;
+font-weight: 600;
+color: #4a5568;
+cursor: pointer;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+position: relative;
+overflow: hidden;
+}
+
+.cell::before {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+width: 0;
+height: 0;
+background: radial-gradient(circle, rgba(248, 113, 113, 0.2) 0%, transparent 70%);
+transition: all 0.4s ease;
+transform: translate(-50%, -50%);
+border-radius: 50%;
+}
+
+.cell:hover {
+transform: translateY(-2px);
+box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.1),
+    0 0 0 3px rgba(248, 113, 113, 0.2);
+border-color: #f87171;
+}
+
+.cell:hover::before {
+width: 120px;
+height: 120px;
+}
+
+.cell:active {
+transform: translateY(0);
+}
+
+.cell.x {
+color: #dc2626;
+background: linear-gradient(145deg, #fee2e2, #fecaca);
+}
+
+.cell.o {
+color: #059669;
+background: linear-gradient(145deg, #dcfce7, #bbf7d0);
+}
+
+footer {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 1.5rem;
+background: rgba(255, 255, 255, 0.5);
+backdrop-filter: blur(10px);
+}
+
+.attribution {
+font-size: 0.875rem;
+text-align: center;
+color: #718096;
+font-weight: 300;
+}
+
+.attribution a {
+color: #4299e1;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+.attribution a:hover {
+color: #2b6cb0;
+}
+
+.game-status {
+font-size: 1.1rem;
+font-weight: 400;
+letter-spacing: 0.05em;
+color: #2d374878;
+text-align: center;
+padding: 1rem 2.5rem;            
+background: radial-gradient(circle at 20% 50%, rgba(245, 245, 240, 0.8) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(250, 248, 240, 0.6) 0%, transparent 50%),
+            linear-gradient(135deg, #faf8f0 0%, #f5f3eb 100%);
+border: 1px solid rgba(139, 134, 120, 0.2);
+position: relative;
+cursor: pointer;
+transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+box-shadow: 
+0 1px 3px rgba(139, 134, 120, 0.12),
+inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.game-status::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: repeating-linear-gradient(
+              45deg,
+              transparent,
+              transparent 1px,
+              rgba(139, 134, 120, 0.03) 1px,
+              rgba(139, 134, 120, 0.03) 2px
+            );
+pointer-events: none;
+}
+
+.game-status:hover {
+transform: translateY(-1px);
+box-shadow: 0 4px 12px rgba(139, 134, 120, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.6);
+background: radial-gradient(circle at 20% 50%, rgba(245, 245, 240, 0.9) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(250, 248, 240, 0.7) 0%, transparent 50%),
+            linear-gradient(135deg, #fdfcf7 0%, #f8f6f0 100%);
 }
