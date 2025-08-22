@@ -146,7 +146,7 @@ transform: translateY(-2px);
 box-shadow: 
     0 10px 20px rgba(0, 0, 0, 0.1),
     0 0 0 3px rgba(248, 113, 113, 0.2);
-border-color: #f87171;
+border-color: #8e71f8;
 }
 
 .cell:hover::before {
@@ -160,11 +160,13 @@ transform: translateY(0);
 
 .cell.o {
 color: #dc2626;
+border: 2px dotted #dc2626 ;
 background: linear-gradient(145deg, #fee2e2, #fecaca);
 }
 
 .cell.x {
 color: #059669;
+border: 2px dotted #059669;
 background: linear-gradient(145deg, #dcfce7, #bbf7d0);
 }
 
