@@ -13,10 +13,6 @@
         }
         
 body {
-    background-image: url(./848.jpg);
-    background-size: cover;          
-    background-position: center;     
-    background-repeat: no-repeat;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     font-family: 'Noto Sans JP', sans-serif;
@@ -24,6 +20,14 @@ body {
     position: relative;
     overflow-x: hidden;
 }        
+
+#backgroundvideo {
+  position: fixed;
+   right: 0;
+   bottom: 0;
+   min-width: 100%;
+   min-height: 100%;
+ }
         
 input, button, textarea, select {
     font: inherit;
@@ -75,6 +79,7 @@ main {
   margin-bottom: 2rem;
   text-align: center;
   letter-spacing: 0.1em;
+  z-index: 21;
 }
         
 .title-english {
