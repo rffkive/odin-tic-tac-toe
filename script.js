@@ -27,16 +27,16 @@ const Game = (function () {
             playerDiv.textContent = currentPlayer.mark;
             playerDiv.classList.toggle(`${currentPlayer.mark}`);
             const playerStatus = document.querySelector(".game-status");
-            playerStatus.textContent = `${currentPlayer.name}'S TURN (ﾉ≧ڡ≦)`;
+            playerStatus.textContent = `YOUR TURN (ﾉ≧ڡ≦)`;
             if (gameOver()) {
+                playerStatus.textContent = " (๑♡⌓♡๑) YOU WIN ";
                 setTimeout (()=>{
-                console.log(`${currentPlayer.name} is the winner`);
                 playAgain();
                 },500);
                 return;
             } else if (isTie()) {
+                playerStatus.textContent = "-_- ITS A TIE -_-";
                 setTimeout(()=>{
-                console.log(`it's tie`);
                 playAgain();
                 },500);
                 return;  
@@ -103,14 +103,14 @@ const Game = (function () {
         const playerStatus = document.querySelector(".game-status");
             playerStatus.textContent = `COMPUTER'S TURN (¬_¬)`;
         if (gameOver()) {
+            playerStatus.textContent = " ┐(´ー｀)┌ YOU LOSE";
             setTimeout(()=>{
-            console.log(`${currentPlayer.name} is the winner`);
             playAgain();
             },500);
             return;
         } else if (isTie()) {
+            playerStatus.textContent = "-_- ITS A TIE -_-";
             setTimeout(()=>{
-            console.log(`it's tie`);
             playAgain();
             },500);
             return;
