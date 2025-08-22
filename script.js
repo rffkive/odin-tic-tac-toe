@@ -102,12 +102,16 @@ const Game = (function () {
         console.log (`${currentPlayer.name} placed ${currentPlayer.mark} at position ${computerIndex}`);
         console.log(GameBoard.getBoard());
         if (gameOver()) {
+            setTimeout(()=>{
             console.log(`${currentPlayer.name} is the winner`);
             playAgain();
+            });
             return;
         } else if (isTie()) {
+            setTimeout(()=>{
             console.log(`it's tie`);
             playAgain();
+            });
             return;
         } 
         switchPlayer();
