@@ -73,6 +73,8 @@ const Game = (function () {
             const cell = document.querySelectorAll(".cell");
             cell.forEach(cell => {
                 cell.textContent = "";
+                cell.classList.remove("x");
+                cell.classList.remove("o");
                 return;
             });
         } else {
