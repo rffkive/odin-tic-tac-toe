@@ -26,6 +26,8 @@ const Game = (function () {
             const playerDiv = document.querySelector(`.cell[data-index="${index}"]`);
             playerDiv.textContent = currentPlayer.mark;
             playerDiv.classList.toggle(`${currentPlayer.mark}`);
+            const playerStatus = document.querySelector(".game-status");
+            playerStatus.textContent = `${currentPlayer.name}'S TURN (ﾉ≧ڡ≦)`;
             if (gameOver()) {
                 setTimeout (()=>{
                 console.log(`${currentPlayer.name} is the winner`);
@@ -98,6 +100,8 @@ const Game = (function () {
         const computerDiv = document.querySelector(`.cell[data-index="${computerIndex}"]`);
         computerDiv.textContent = currentPlayer.mark;
         computerDiv.classList.toggle(`${currentPlayer.mark}`);
+        const playerStatus = document.querySelector(".game-status");
+            playerStatus.textContent = `COMPUTER'S TURN (¬_¬)`;
         if (gameOver()) {
             setTimeout(()=>{
             console.log(`${currentPlayer.name} is the winner`);
