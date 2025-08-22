@@ -30,13 +30,13 @@ const Game = (function () {
                 setTimeout (()=>{
                 console.log(`${currentPlayer.name} is the winner`);
                 playAgain();
-                },100);
+                },500);
                 return;
             } else if (isTie()) {
                 setTimeout(()=>{
                 console.log(`it's tie`);
                 playAgain();
-                },100);
+                },500);
                 return;  
             }
         } else { 
@@ -102,17 +102,17 @@ const Game = (function () {
             setTimeout(()=>{
             console.log(`${currentPlayer.name} is the winner`);
             playAgain();
-            },100);
+            },500);
             return;
         } else if (isTie()) {
             setTimeout(()=>{
             console.log(`it's tie`);
             playAgain();
-            },100);
+            },500);
             return;
         } 
         switchPlayer();
-        },500);
+        },400);
     };
     
     const chooseTurn = (name,number) => {
