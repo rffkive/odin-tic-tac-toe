@@ -77,6 +77,8 @@ const Game = (function () {
                 cell.textContent = "";
                 cell.classList.remove("x");
                 cell.classList.remove("o");
+                const playerStatus = document.querySelector(".game-status");
+                playerStatus.textContent = `GAME START o(≧▽≦)o`;
                 return;
             });
         } else {
